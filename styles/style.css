@@ -11,6 +11,336 @@
 */
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 98px;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: "Inter-Variable", sans-serif;
+  font-variation-settings: "wght" 410;
+  background-image: var(--bg-gradient);
+  background-size: cover;
+  background-attachment: fixed;
+  padding-block: 100px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-family: "PressStart2P-Regular", fantasy;
+  inline-size: clamp(320px, 100%, 700px);
+  padding-block: clamp(122px, 17.6%, 130px);
+  padding-inline: clamp(16px, 8.75%, 122.5px);
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.header__title {
+  font-size: clamp(49px, 4.5vw, 65px);
+}
+
+.header__subtitle {
+  font-size: clamp(14px, 1.6vw, 23px);
+  text-transform: uppercase;
+}
+
+.elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+  background-color: #fff;
+  min-block-size: 715px;
+  inline-size: clamp(320px, 100%, 700px);
+}
+
+.section__header {
+  font-size: 18px;
+  font-variation-settings: "wght" 715;
+  border-bottom: 2px solid #000;
+  padding: 4px 10px;
+}
+
+.section__image {
+  position: relative;
+}
+
+.section__image-bus {
+  block-size: 100%;
+  inline-size: 100%;
+  max-block-size: 696px;
+}
+
+.section__sign {
+  position: absolute;
+  font-family: "PressStart2P-Regular", fantasy;
+  font-size: 14px;
+  font-weight: 400;
+  top: 25px;
+  right: 25px;
+  opacity: 50%;
+  mix-blend-mode: hard-light;
+  text-shadow:
+    1px 0 #fff,
+    0 1px #fff,
+    -1px 0 #fff,
+    0 -1px #fff;
+}
+
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+  }
+}
+
+.section__speech {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  gap: 25px;
+  padding: 25px;
+  line-height: 21px;
+}
+
+.section__icon {
+  display: flex;
+  align-items: center;
+  align-self: end;
+  gap: 7px;
+}
+
+.card__icon-button {
+  border: none;
+  padding: 0;
+  background-color: #fff;
+  inline-size: 39px;
+  block-size: 36px;
+  transition: 0.3s ease;
+}
+
+.main-part {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-part {
+  fill: #000;
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .main-part {
+  fill: #ff0000;
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .main-part {
+  fill: #ff0000;
+  transition: fill 0.3s 0.05s linear;
+}
+
+.core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .core {
+  fill: #000;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .core {
+  fill: #ff0000;
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: #ff0000;
+  transition: fill 0.3s linear;
+}
+
+.sparks {
+  fill: #ff0000;
+  opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation: spark 0.3s 0.3s ease-in 1;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: scale 0.3s 0.1s ease-in 1;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid #000;
+}
+
+.button {
+  position: relative;
+  background-color: #fff;
+  border: 2px solid #000;
+  overflow: hidden;
+  transition: 0.3s ease;
+  color: #fff;
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 #000;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  background-color: #000;
+  inset: 0;
+  transform: translateX(-100%);
+  transition: 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button__text {
+  position: relative;
+  font-family: "PressStart2P-Regular", sans-serif;
+  color: #fff;
+  font-size: 14px;
+  mix-blend-mode: difference;
+}
+
+.sepia {
+  filter: sepia(100%);
+}
+
+.numeruos {
+  filter: saturate(150%) hue-rotate(85deg);
+}
+
+.effect {
+  filter: grayscale(100%);
+}
+
+.blur {
+  filter: blur(0.2rem);
+}
+
+.saturation {
+  filter: saturate(200%) contrast(130%);
+}
+
+.invertion {
+  filter: invert(100%);
+}
+
+.brightness {
+  filter: brightness(300%);
+}
+
+.save {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 8px;
+}
+
+.save-button__icon {
+  position: relative;
+  z-index: 2;
+  inline-size: 25px;
+  block-size: 25px;
+  fill: #fff;
+  mix-blend-mode: difference;
+}
+
+.button__text-save {
+  font-family: "PressStart2P-Regular", fantasy;
+  font-size: 14px;
+  line-height: 90%;
+  text-wrap: nowrap;
+}
+
+.save-popup {
+  display: none;
+  font-family: "PressStart2P-Regular", fantasy;
+  font-size: 14px;
+  max-inline-size: 353px;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.save-popup[open] {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 30px;
+  background-color: #fff;
+}
+
+.save-popup::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.page:has(.save-popup[open]) {
+  overflow: hidden;
+}
+
+.save-popup .save-button__icon {
+  inline-size: 39px;
+  block-size: 39px;
+  mix-blend-mode: initial;
+}
+
+.save-popup__text {
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.save-popup .save {
+  grid-column: 1/3;
+  justify-content: center;
+  line-height: 90%;
+  padding-block: 12.5px;
+}
+
+@media (width < 376px) {
+  .page {
+    gap: 100px;
+  }
+
+  .section__image-bus {
+    inline-size: 371px;
+    block-size: 371px;
+  }
+
+  .save {
+    flex-direction: column;
+    padding-block: 17px;
+  }
 }
